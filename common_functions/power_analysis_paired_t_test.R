@@ -1,5 +1,5 @@
 ## Corporate Essence Analysis - Moral Asymmetry 
-
+## , 
 
 # Clear working directory
 remove(list = ls())

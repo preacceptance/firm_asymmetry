@@ -1,4 +1,5 @@
 ## Corporate Essence Analysis - Twitter Followers 
+## , 
 
 # Clear working directory
 remove(list = ls()) 

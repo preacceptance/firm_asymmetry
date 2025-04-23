@@ -1,5 +1,5 @@
 ## Corporate Essence Analysis - Causal Essence 
-
+## ,  
 
 # Clear working directory
 remove(list = ls())
@@ -30,7 +30,7 @@ pacman::p_load('openxlsx', #open Excel spreadsheets
                'sjstats'
 )
 
-mediation <- FALSE
+mediation <- T
 
 ##================================================================================================================
                                 ##IMPORT & PRE-PROCESS DATA##
@@ -139,6 +139,8 @@ setDT(d)[, 100 * .N/nrow(d), by = gender] #female: 59.62% (coded as 2 in raw dat
                                           ## MAIN ANALYSES ##
 ##================================================================================================================
 
+cor(d[, c(13:15)])
+
 # Essence manipulation check
 t.test(subset(final_data,essence_num==-1)$original_essence_1,subset(final_data,essence_num==1)$original_essence_1,paired=F,var.equal=T) 
 cohen.d(subset(final_data,essence_num==-1)$original_essence_1,subset(final_data,essence_num==1)$original_essence_1,paired=F,var.equal=T) 
@@ -152,11 +154,12 @@ cor.test(final_data$same_company_1, final_data$agree_person_1)
 #change_total <- cbind(final_data$same_company_1, final_data$agree_person_1)
 #psych::alpha(change_total)$total$raw_alpha #0.8713332 
 
-
 # Anova, identity effect
 mod <- aov(identity ~ essence*condition, data = final_data)
 summary(mod)
 anova_stats(mod)
+
+
 
 
 # Good essence (before) 
@@ -192,20 +195,22 @@ final_data$avg_traits <- rowMeans(combined_traits)
                                     ## MODERATION MEDIATION ANALYSIS ##
 ##================================================================================================================
 
+cor.test(final_data$reflect_essence_1, final_data$identity)
+cor.test(final_data$avg_traits, final_data$identity)
+
 if(mediation) {
     source("../common_functions/process.R") #import process function for mediation analysis 
     
     # Moderated Mediation: PROCESS Model 7  
     process(data = final_data,
-            y = "identity", x = "essence_num", 
+            y = "identity", x = "cond_num", 
             m = c("reflect_essence_1", "avg_traits"),
-            w = "cond_num", model = 7,
+            w = "essence_num", model = 7,
             center = 2,
             moments = 1, modelbt = 1,
             boot = 10000, seed = 654321) 
+    
 }
-
-
 
 ##=============================================================================================================
                                           ## PLOTTING ##
@@ -221,7 +226,9 @@ bootstrap_ci <- function(x, alpha = 0.05, n_bootstrap = 1000) {
 }
 
 legend_labels <- c("Moral Deterioration", "Moral Improvement")
-x_labels <- c("Bad Essence", "Good Essence")
+x_labels <- c("Good Essence", "Bad Essence")
+
+final_data$essence <- ifelse(final_data$essence == "good", "1 good", "2 bad")
 
 p2 <- ggplot(final_data,aes(x=factor(essence),y=identity, fill=factor(condition)),color=factor(condition)) +  
   theme_bw() + coord_cartesian(ylim=c(1,100))+scale_y_continuous(breaks = scales::pretty_breaks(n = 5)) 
@@ -242,7 +249,7 @@ p2 <- p2 + theme(text = element_text(size=18),panel.grid.major = element_blank()
         axis.title.x = element_text(size = 25, margin = margin(t = 20, r = 0, b = 0, l = 0)), 
         axis.text.x = element_text(size = 14),
         legend.position="top") + 
-  xlab("Firm Type") +
+  xlab("Company Essence Valence") +
   ylab("Identity Change") +
   geom_bar(position="dodge", stat="summary", width = 0.9, alpha = 0.38, size = 0.75) +
   stat_summary(fun.data = function(x) bootstrap_ci(x, alpha = 0.05, n_bootstrap = 1000),

@@ -29,7 +29,6 @@ def get_tweets(person_list):
 if __name__ == "__main__":
     senators = pd.read_excel('congress_twitter_040722.xlsx', sheet_name = [0])
     senator_counts = get_tweets(senators[0]['handle'])
-    set_trace()
     senator_counts = pd.DataFrame(senator_counts)
     senator_out = pd.concat([senators[0], senator_counts.iloc[:,1:]], axis=1)
 

@@ -1,0 +1,101 @@
+"X","Name","Link","handle","State","Party","date1","date1_followers","date1_tweets","date2","date2_followers","date2_tweets","diff_followers","diff_tweets"
+0,"Baldwin, Tammy","https://twitter.com/SenatorBaldwin","SenatorBaldwin","WI","D","4/24/22",144472,17671,"4/26/22",143943,17674,-529,3
+1,"Barrasso, John","https://twitter.com/SenJohnBarrasso","SenJohnBarrasso","WY","R","4/24/22",157201,6740,"4/26/22",157235,6743,34,3
+2,"Bennet, Michael F.","https://twitter.com/SenatorBennet","SenatorBennet","CO","D","4/24/22",312535,7257,"4/26/22",311564,7262,-971,5
+3,"Blackburn, Marsha","https://twitter.com/MarshaBlackburn","MarshaBlackburn","TN","R","4/24/22",465755,14404,"4/26/22",481645,14416,15890,12
+4,"Blumenthal, Richard","https://twitter.com/SenBlumenthal","SenBlumenthal","CT","D","4/24/22",729672,17468,"4/26/22",727399,17477,-2273,9
+5,"Blunt, Roy","https://twitter.com/RoyBlunt","RoyBlunt","MO","R","4/24/22",128063,15433,"4/26/22",128040,15435,-23,2
+6,"Booker, Cory A.","https://twitter.com/CoryBooker","CoryBooker","NJ","D","4/24/22",4943172,67168,"4/26/22",4934426,67171,-8746,3
+7,"Boozman, John","https://twitter.com/JohnBoozman","JohnBoozman","AR","R","4/24/22",104490,8681,"4/26/22",104506,8692,16,11
+8,"Braun, Mike","https://twitter.com/SenatorBraun","SenatorBraun","IN","R","4/24/22",36589,3617,"4/26/22",36648,3617,59,0
+9,"Brown, Sherrod","https://twitter.com/SenSherrodBrown","SenSherrodBrown","OH","D","4/24/22",514356,8873,"4/26/22",512230,8876,-2126,3
+10,"Burr, Richard","https://twitter.com/SenatorBurr","SenatorBurr","NC","R","4/24/22",172937,3983,"4/26/22",172662,3983,-275,0
+11,"Cantwell, Maria","https://twitter.com/SenatorCantwell","SenatorCantwell","WA","D","4/24/22",260297,10090,"4/26/22",259565,10094,-732,4
+12,"Capito, Shelley Moore","https://twitter.com/SenCapito","SenCapito","WV","R","4/24/22",89969,12385,"4/26/22",89984,12389,15,4
+13,"Cardin, Benjamin L.","https://twitter.com/SenatorCardin","SenatorCardin","MD","D","4/24/22",263130,13625,"4/26/22",262731,13636,-399,11
+14,"Carper, Thomas R.","https://twitter.com/SenatorCarper","SenatorCarper","DE","D","4/24/22",114233,11649,"4/26/22",113950,11651,-283,2
+15,"Casey, Robert P. Jr.","https://twitter.com/SenBobCasey","SenBobCasey","PA","D","4/24/22",438881,14508,"4/26/22",437979,14515,-902,7
+16,"Cassidy, Bill","https://twitter.com/SenBillCassidy","SenBillCassidy","LA","R","4/24/22",46160,5738,"4/26/22",46134,5743,-26,5
+17,"Collins, Susan M.","https://twitter.com/SenatorCollins","SenatorCollins","ME","R","4/24/22",566665,4357,"4/26/22",565901,4359,-764,2
+18,"Coons, Christopher A.","https://twitter.com/ChrisCoons","ChrisCoons","DE","D","4/24/22",219196,16504,"4/26/22",218517,16508,-679,4
+19,"Cornyn, John","https://twitter.com/JohnCornyn","JohnCornyn","TX","R","4/24/22",328408,50976,"4/26/22",330024,51015,1616,39
+20,"Cortez Masto, Catherine","https://twitter.com/SenCortezMasto","SenCortezMasto","NV","D","4/24/22",62258,10625,"4/26/22",62057,10629,-201,4
+21,"Cotton, Tom","https://twitter.com/SenTomCotton","SenTomCotton","AR","R","4/24/22",481537,11099,"4/26/22",486809,11100,5272,1
+22,"Cramer, Kevin","https://twitter.com/SenKevinCramer","SenKevinCramer","ND","R","4/24/22",31054,7995,"4/26/22",31132,8005,78,10
+23,"Crapo, Mike","https://twitter.com/MikeCrapo","MikeCrapo","ID","R","4/24/22",125402,9394,"4/26/22",125427,9396,25,2
+24,"Cruz, Ted","https://twitter.com/SenTedCruz","SenTedCruz","TX","R","4/24/22",2437106,19056,"4/26/22",2478878,19067,41772,11
+25,"Daines, Steve","https://twitter.com/SteveDaines","SteveDaines","MT","R","4/24/22",78503,8352,"4/26/22",78649,8357,146,5
+26,"Duckworth, Tammy","https://twitter.com/SenDuckworth","SenDuckworth","IL","D","4/24/22",772956,10371,"4/26/22",769276,10377,-3680,6
+27,"Durbin, Richard J.","https://twitter.com/SenatorDurbin","SenatorDurbin","IL","D","4/24/22",750531,21581,"4/26/22",748323,21587,-2208,6
+28,"Ernst, Joni","https://twitter.com/SenJoniErnst","SenJoniErnst","IA","R","4/24/22",129195,8087,"4/26/22",130039,8091,844,4
+29,"Feinstein, Dianne","https://twitter.com/SenFeinstein","SenFeinstein","CA","D","4/24/22",1501329,13336,"4/26/22",1497358,13338,-3971,2
+30,"Fischer, Deb","https://twitter.com/SenatorFischer","SenatorFischer","NE","R","4/24/22",102513,7685,"4/26/22",102487,7689,-26,4
+31,"Gillibrand, Kirsten E.","https://twitter.com/SenGillibrand","SenGillibrand","NY","D","4/24/22",1603644,21124,"4/26/22",1598665,21124,-4979,0
+32,"Graham, Lindsey","https://twitter.com/LindseyGrahamSC","LindseyGrahamSC","SC","R","4/24/22",2055408,13729,"4/26/22",2065978,13731,10570,2
+33,"Grassley, Chuck","https://twitter.com/ChuckGrassley","ChuckGrassley","IA","R","4/24/22",690398,11045,"4/26/22",694400,11048,4002,3
+34,"Hagerty, Bill","https://twitter.com/SenatorHagerty","SenatorHagerty","TN","R","4/24/22",15888,4225,"4/26/22",15949,4239,61,14
+35,"Hassan, Margaret Wood","https://twitter.com/SenatorHassan","SenatorHassan","NH","D","4/24/22",162589,11645,"4/26/22",162186,11650,-403,5
+36,"Hawley, Josh","https://twitter.com/HawleyMO","HawleyMO","MO","R","4/24/22",748005,6089,"4/26/22",758589,6093,10584,4
+37,"Heinrich, Martin","https://twitter.com/MartinHeinrich","MartinHeinrich","NM","D","4/24/22",209712,10379,"4/26/22",209219,10379,-493,0
+38,"Hickenlooper, John W.","https://twitter.com/SenatorHick","SenatorHick","CO","D","4/24/22",29874,1241,"4/26/22",29664,1248,-210,7
+39,"Hirono, Mazie K.","https://twitter.com/maziehirono","maziehirono","HI","D","4/24/22",515383,7436,"4/26/22",512980,7439,-2403,3
+40,"Hoeven, John","https://twitter.com/SenJohnHoeven","SenJohnHoeven","ND","R","4/24/22",118376,4879,"4/26/22",118409,4880,33,1
+41,"Hyde-Smith, Cindy","https://twitter.com/SenHydeSmith","SenHydeSmith","MS","R","4/24/22",22714,2755,"4/26/22",22745,2756,31,1
+42,"Inhofe, James M.","https://twitter.com/JimInhofe","JimInhofe","OK","R","4/24/22",94587,5148,"4/26/22",94654,5149,67,1
+43,"Johnson, Ron","https://twitter.com/SenRonJohnson","SenRonJohnson","WI","R","4/24/22",335402,7372,"4/26/22",338459,7375,3057,3
+44,"Kaine, Tim","https://twitter.com/timkaine","timkaine","VA","D","4/24/22",1000317,11527,"4/26/22",997130,11529,-3187,2
+45,"Kelly, Mark","https://twitter.com/SenMarkKelly","SenMarkKelly","AZ","D","4/24/22",121276,1135,"4/26/22",120604,1140,-672,5
+46,"Kennedy, John","https://twitter.com/SenJohnKennedy","SenJohnKennedy","LA","R","4/24/22",290497,3284,"4/26/22",295392,3285,4895,1
+47,"King, Angus S. Jr.","https://twitter.com/SenAngusKing","SenAngusKing","ME","I","4/24/22",254911,5848,"4/26/22",254202,5850,-709,2
+48,"Klobuchar, Amy","https://twitter.com/SenAmyKlobuchar","SenAmyKlobuchar","MN","D","4/24/22",95166,1617,"4/26/22",94585,1622,-581,5
+49,"Lankford, James","https://twitter.com/SenatorLankford","SenatorLankford","OK","R","4/24/22",115815,9981,"4/26/22",116024,9995,209,14
+50,"Leahy, Patrick J.","https://twitter.com/SenatorLeahy","SenatorLeahy","VT","D","4/24/22",236108,18670,"4/26/22",235094,18670,-1014,0
+51,"Lee, Mike","https://twitter.com/SenMikeLee","SenMikeLee","UT","R","4/24/22",620862,6572,"4/26/22",622895,6572,2033,0
+52,"Luján, Ben Ray","https://twitter.com/SenatorLujan","SenatorLujan","NM","D","4/24/22",39292,6268,"4/26/22",39132,6272,-160,4
+53,"Lummis, Cynthia M.","https://twitter.com/SenLummis","SenLummis","WY","R","4/24/22",84200,2951,"4/26/22",84243,2951,43,0
+54,"Manchin, Joe, III","https://twitter.com/Sen_JoeManchin","Sen_JoeManchin","WV","D","4/24/22",344222,9094,"4/26/22",343973,9095,-249,1
+55,"Markey, Edward J.","https://twitter.com/SenMarkey","SenMarkey","MA","D","4/24/22",252180,18737,"4/26/22",251161,18739,-1019,2
+56,"Marshall, Roger","https://twitter.com/SenatorMarshall","SenatorMarshall","KS","R","4/24/22",1794,0,"4/26/22",1794,0,0,0
+57,"McConnell, Mitch","https://twitter.com/LeaderMcConnell","LeaderMcConnell","KY","R","4/24/22",2120780,4863,"4/26/22",2123188,4863,2408,0
+58,"Menendez, Bob","https://twitter.com/SenatorMenendez","SenatorMenendez","NJ","D","4/24/22",211081,17486,"4/26/22",210850,17495,-231,9
+59,"Merkley, Jeff","https://twitter.com/SenJeffMerkley","SenJeffMerkley","OR","D","4/24/22",513361,15598,"4/26/22",511444,15603,-1917,5
+60,"Moran, Jerry","https://twitter.com/JerryMoran","JerryMoran","KS","R","4/24/22",118400,7265,"4/26/22",118352,7267,-48,2
+61,"Murkowski, Lisa","https://twitter.com/lisamurkowski","lisamurkowski","AK","R","4/24/22",331452,12162,"4/26/22",330710,12167,-742,5
+62,"Murphy, Christopher","https://twitter.com/ChrisMurphyCT","ChrisMurphyCT","CT","D","4/24/22",1081735,27142,"4/26/22",1078392,27150,-3343,8
+63,"Murray, Patty","https://twitter.com/PattyMurray","PattyMurray","WA","D","4/24/22",482178,22451,"4/26/22",480825,22458,-1353,7
+64,"Ossoff, Jon","https://twitter.com/ossoff","ossoff","GA","D","4/24/22",1261334,9107,"4/26/22",1254227,9107,-7107,0
+65,"Padilla, Alex","https://twitter.com/SenAlexPadilla","SenAlexPadilla","CA","D","4/24/22",57079,1967,"4/26/22",56746,1971,-333,4
+66,"Paul, Rand","https://twitter.com/RandPaul","RandPaul","KY","R","4/24/22",3598339,15794,"4/26/22",3665685,15801,67346,7
+67,"Peters, Gary C.","https://twitter.com/SenGaryPeters","SenGaryPeters","MI","D","4/24/22",147948,9015,"4/26/22",147647,9018,-301,3
+68,"Portman, Rob","https://twitter.com/senrobportman","senrobportman","OH","R","4/24/22",170185,22308,"4/26/22",170134,22317,-51,9
+69,"Reed, Jack","https://twitter.com/SenJackReed","SenJackReed","RI","D","4/24/22",111805,7372,"4/26/22",111567,7373,-238,1
+70,"Risch, James E.","https://twitter.com/SenatorRisch","SenatorRisch","ID","R","4/24/22",113145,3667,"4/26/22",113100,3670,-45,3
+71,"Romney, Mitt","https://twitter.com/SenatorRomney","SenatorRomney","UT","R","4/24/22",212276,1881,"4/26/22",211758,1882,-518,1
+72,"Rosen, Jacky","https://twitter.com/SenJackyRosen","SenJackyRosen","NV","D","4/24/22",47036,9510,"4/26/22",46864,9517,-172,7
+73,"Rounds, Mike","https://twitter.com/SenatorRounds","SenatorRounds","SD","R","4/24/22",40859,4732,"4/26/22",40911,4732,52,0
+74,"Rubio, Marco","https://twitter.com/marcorubio","marcorubio","FL","R","4/24/22",4314504,16017,"4/26/22",4322367,16019,7863,2
+75,"Sanders, Bernard","https://twitter.com/SenSanders","SenSanders","VT","I","4/24/22",12512663,23161,"4/26/22",12493128,23162,-19535,1
+76,"Sasse, Ben","https://twitter.com/SenSasse","SenSasse","NE","R","4/24/22",177852,934,"4/26/22",177550,934,-302,0
+77,"Schatz, Brian","https://twitter.com/SenBrianSchatz","SenBrianSchatz","HI","D","4/24/22",56496,2265,"4/26/22",56295,2267,-201,2
+78,"Schumer, Charles E.","https://twitter.com/SenSchumer","SenSchumer","NY","D","4/24/22",3412363,22692,"4/26/22",3404306,22701,-8057,9
+79,"Scott, Rick","https://twitter.com/SenRickScott","SenRickScott","FL","R","4/24/22",371184,21506,"4/26/22",372739,21510,1555,4
+80,"Scott, Tim","https://twitter.com/SenatorTimScott","SenatorTimScott","SC","R","4/24/22",621396,10872,"4/26/22",625491,10878,4095,6
+81,"Shaheen, Jeanne","https://twitter.com/SenatorShaheen","SenatorShaheen","NH","D","4/24/22",130602,14007,"4/26/22",130225,14018,-377,11
+82,"Shelby, Richard C.","https://twitter.com/SenShelby","SenShelby","AL","R","4/24/22",96454,3159,"4/26/22",96470,3159,16,0
+83,"Sinema, Kyrsten","https://twitter.com/SenatorSinema","SenatorSinema","AZ","D","4/24/22",185525,15662,"4/26/22",185202,15666,-323,4
+84,"Smith, Tina","https://twitter.com/SenTinaSmith","SenTinaSmith","MN","D","4/24/22",95039,4759,"4/26/22",94468,4759,-571,0
+85,"Stabenow, Debbie","https://twitter.com/SenStabenow","SenStabenow","MI","D","4/24/22",148319,6903,"4/26/22",147936,6906,-383,3
+86,"Sullivan, Dan","https://twitter.com/SenDanSullivan","SenDanSullivan","AK","R","4/24/22",61588,3975,"4/26/22",61607,3977,19,2
+87,"Tester, Jon","https://twitter.com/SenatorTester","SenatorTester","MT","D","4/24/22",137616,6847,"4/26/22",137167,6859,-449,12
+88,"Thune, John","https://twitter.com/SenJohnThune","SenJohnThune","SD","R","4/24/22",125629,7488,"4/26/22",125887,7489,258,1
+89,"Tillis, Thom","https://twitter.com/SenThomTillis","SenThomTillis","NC","R","4/24/22",126123,6658,"4/26/22",126191,6660,68,2
+90,"Toomey, Patrick J.","https://twitter.com/SenToomey","SenToomey","PA","R","4/24/22",191746,5831,"4/26/22",191526,5831,-220,0
+91,"Tuberville, Tommy","https://twitter.com/SenTuberville","SenTuberville","AL","R","4/24/22",18986,1551,"4/26/22",19026,1559,40,8
+92,"Van Hollen, Chris","https://twitter.com/ChrisVanHollen","ChrisVanHollen","MD","D","4/24/22",195998,6907,"4/26/22",195432,6911,-566,4
+93,"Warner, Mark R.","https://twitter.com/MarkWarner","MarkWarner","VA","D","4/24/22",503612,12305,"4/26/22",502212,12309,-1400,4
+94,"Warnock, Raphael G.","https://twitter.com/SenatorWarnock","SenatorWarnock","GA","D","4/24/22",159260,2026,"4/26/22",158190,2032,-1070,6
+95,"Warren, Elizabeth","https://twitter.com/SenWarren","SenWarren","MA","D","4/24/22",7075298,9555,"4/26/22",7061358,9560,-13940,5
+96,"Whitehouse, Sheldon","https://twitter.com/SenWhitehouse","SenWhitehouse","RI","D","4/24/22",541554,18793,"4/26/22",539446,18802,-2108,9
+97,"Wicker, Roger F.","https://twitter.com/SenatorWicker","SenatorWicker","MS","R","4/24/22",106361,9218,"4/26/22",106415,9227,54,9
+98,"Wyden, Ron","https://twitter.com/RonWyden","RonWyden","OR","D","4/24/22",530203,12253,"4/26/22",528523,12255,-1680,2
+99,"Young, Todd","https://twitter.com/SenToddYoung","SenToddYoung","IN","R","4/24/22",68296,8609,"4/26/22",68322,8614,26,5

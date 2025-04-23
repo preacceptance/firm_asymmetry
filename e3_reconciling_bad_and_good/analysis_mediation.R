@@ -1,5 +1,5 @@
 ## Corporate Essence Analysis - Causal Essence 
-
+## ,  
 
 # Clear working directory
 remove(list = ls())
@@ -29,7 +29,9 @@ pacman::p_load('openxlsx', #open Excel spreadsheets
                'effectsize',
                'ggpubr',
                'sjstats',
-               'interactions'
+               'interactions',
+               "semTools",
+               "patchwork"
 )
 
 mediation <- TRUE 
@@ -193,6 +195,9 @@ if (mediation) {
 ## IDENTITY ANALYSES ##
 ##================================================================================================================
 
+cor(d[, c("dv", "essence", "category", "teleology")])
+cor(d[, c("dv", "essence")])
+
 identity_data <- as.data.frame(subset(final_data,quest=="IdentityMeasures"))
 
 # Check for interactions
@@ -265,26 +270,26 @@ library(jtools)
 library(ggplot2)
 
 p0 <- johnson_neyman(fit, pred = "cond_num", modx = "psychopathy")
-
-# Set the colors for the lines and error regions
 line_colors <- c("light gray", "black")
 error_colors <- c("lightgray", "black")
 
 # Modify the plot with the customized colors
 p0[["plot"]] +
-  labs(x = "Psychopathic Ascription", y = "Valence Condition", title = "") +
-  scale_color_manual(values = line_colors) +
-  #geom_ribbon(aes(fill = factor(term)), alpha = 0.5, color = NA) +
-  scale_fill_manual(values = error_colors)+
-  geom_vline(aes(xintercept = y$jn_point), linetype = "dotted", color = 'black')+
-  theme(text = element_text(size = 25),
-        axis.title.y = element_text(size = 25), 
-        axis.title.x = element_text(size = 25, margin = margin(t = 20, r = 0, b = 0, l = 0)), 
-        axis.text.x = element_text(size = 20),
-        legend.text = element_text(size = 18),
-        legend.position="top") 
+  labs(x = "Psychopathic Ascription", y = "Effect of Moral Change Condition on Predictions", title = "")+
+    theme(text = element_text(size = 25),
+          axis.title.y = element_text(size = 25), 
+          axis.title.x = element_text(size = 25, margin = margin(t = 20, r = 0, b = 0, l = 0)), 
+          axis.text.x = element_text(size = 20),
+          legend.text = element_text(size = 18),
+          legend.position="top") 
 
-ggsave(paste0('e2_jn', "png"), last_plot(), dpi = 300, width = 7, height = 8)
+#  scale_color_manual(values = line_colors) +
+#  #geom_ribbon(aes(fill = factor(term)), alpha = 0.5, color = NA) +
+#  scale_fill_manual(values = error_colors)+
+#  geom_vline(aes(xintercept = y$jn_point), linetype = "dotted", color = 'black')+
+
+
+ggsave(paste0('e2_jn', ".png"), last_plot(), dpi = 300, width = 7, height = 8)
 
 # Move files 
 dir.create("analysis_plots") 
@@ -320,6 +325,7 @@ abline(lm(pred_det$dv ~ pred_det$psychopathy))
 
 # Define variables 
 x_labels <- c("Deterioration", "Improvement")
+legend_labels <- c("Deterioration", "Improvement")
 
 # Function for bootstrapping and computing confidence intervals
 bootstrap_ci <- function(x, alpha = 0.05, n_bootstrap = 1000) {
@@ -357,7 +363,7 @@ p1
 
 x_labels <- c("Clothing", "Cosmetics", "Apparel", "Mining", 
               "Technology", "Petroleum", "Tobacco", "Makeup") #set category/industry names
-legend_labels <- c("Deterioration", "Improvement")
+
 
 p2 <- ggplot(identity_data,aes(x=factor(vignette),y=dv, fill=factor(cond)),color=factor(cond)) +  
   theme_bw() + coord_cartesian(ylim=c(1,100))+scale_y_continuous(breaks = scales::pretty_breaks(n = 5)) 
@@ -378,7 +384,7 @@ p2 <- p2 + theme(text = element_text(size=18),panel.grid.major = element_blank()
         axis.title.x = element_text(size = 25, margin = margin(t = 20, r = 0, b = 0, l = 0)), 
         axis.text.x = element_text(size = 14, angle = 45, vjust = 1.0, hjust = 1),
         legend.position="top") + 
-  xlab("Firm Type") +
+  xlab("Company Type") +
   ylab("") +
   geom_bar(position="dodge", stat="summary", width = 0.9, alpha = 0.38, size = 0.75) +
   stat_summary(fun.data = function(x) bootstrap_ci(x, alpha = 0.05, n_bootstrap = 1000),
@@ -441,7 +447,7 @@ p4 <- p4 + theme(text = element_text(size=18),panel.grid.major = element_blank()
         axis.title.x = element_text(size = 25, margin = margin(t = 20, r = 0, b = 0, l = 0)), 
         axis.text.x = element_text(size = 14, angle = 45, vjust = 1.0, hjust = 1),
         legend.position="top") + 
-  xlab("Firm Type") +
+  xlab("Company Type") +
   ylab("") +
   geom_bar(position="dodge", stat="summary", width = 0.9, alpha = 0.38, size = 0.75) +
   stat_summary(fun.data = function(x) bootstrap_ci(x, alpha = 0.05, n_bootstrap = 1000),

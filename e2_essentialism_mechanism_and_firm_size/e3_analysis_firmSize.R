@@ -1,5 +1,5 @@
 ## Corporate Essence Analysis - Firm Size
-
+## ,  
 
 # Clear working directory
 remove(list = ls())
@@ -27,7 +27,9 @@ pacman::p_load('openxlsx', #open Excel spreadsheets
                'filesstrings', #move files around 
                'effsize', #effect size package
                'effectsize',
-               'sjstats'
+               'sjstats',
+               "semTools",
+               "patchwork"
 )
 
 mediation <- FALSE
@@ -111,14 +113,26 @@ n_after/n_before
 ## ANALYSES ##
 ##================================================================================================================
 
+# Discriminant Validity
+model <- ' change   =~ change.1 + change.2
+           essence  =~ essence'
+
+htmt(model, d)
+
+## Correlation Matrix
+cor_matrix <- cor(d[, c("change.1", "change.2", "essence")])
+
+cor_matrix
+
+
 ######## Change ##########
 cor.test(d$change.1, d$change.2)
 
 ######## T-Tests ##########
-t.test(change_mean~condition, var.equal=TRUE, paired=FALSE, data=d)
-cohen.d(change_mean~condition, var.equal=TRUE, paired=FALSE, data=d)
-t.test(essence~condition, var.equal=TRUE, paired=FALSE, data=d)
-cohen.d(essence~condition, var.equal=TRUE, paired=FALSE, data=d)
+t.test(change_mean~condition, var.equal=TRUE, data=d)
+cohen.d(change_mean~condition, var.equal=TRUE, data=d)
+t.test(essence~condition, var.equal=TRUE, data=d)
+cohen.d(essence~condition, var.equal=TRUE, data=d)
 
 ######### Interactions #########
 summary(aov(change_mean~cond_name*size_name*vig_name, data=d)) # no interaction with scenario on identity
@@ -150,7 +164,7 @@ bootstrap_ci <- function(x, alpha = 0.05, n_bootstrap = 1000) {
 p1 <- ggplot(d,aes(x=factor(condition),y=change_mean)) +  
   theme_bw() + coord_cartesian(ylim=c(1,100))+scale_y_continuous(breaks = scales::pretty_breaks(n = 5)) 
 
-p1 <- p1 + theme(text = element_text(size=18),panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+p1 <- p1 + theme(text = element_text(size=10),panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
   geom_hline(yintercept = 50, linetype = "dashed", color = "gray65") + 
   scale_x_discrete(labels=x_labels) +
   scale_fill_manual(values = c("#cccccc", "#333333"),name= "",
@@ -158,13 +172,13 @@ p1 <- p1 + theme(text = element_text(size=18),panel.grid.major = element_blank()
   xlab ("") + ylab ("") +
   theme_classic() +
   
-  theme(axis.text.x = element_text(size=14)) +
-  theme(axis.text.y = element_text(size=14)) +
-  theme(plot.title = element_text(size=16, hjust=0.5)) +
-  theme(text = element_text(size = 25),
-        axis.title.y = element_text(size = 25), 
-        axis.title.x = element_text(size = 25, margin = margin(t = 20, r = 0, b = 0, l = 0)), 
-        axis.text.x = element_text(size = 20),
+  theme(axis.text.x = element_text(size=10)) +
+  theme(axis.text.y = element_text(size=10)) +
+  theme(plot.title = element_text(size=10, hjust=0.5)) +
+  theme(text = element_text(size = 10),
+        axis.title.y = element_text(size = 15), 
+        axis.title.x = element_text(size = 15, margin = margin(t = 20, r = 0, b = 0, l = 0)), 
+        axis.text.x = element_text(size = 10),
         legend.position="top") + 
   xlab("Condition") +
   ylab("Identity Change") +
@@ -182,23 +196,22 @@ legend_labels <- c("Deterioration", "Improvement")
 p2 <- ggplot(d,aes(x=factor(vignette),y=change_mean, fill=factor(condition)),color=factor(condition)) +  
   theme_bw() + coord_cartesian(ylim=c(1,100))+scale_y_continuous(breaks = scales::pretty_breaks(n = 5)) 
 
-p2 <- p2 + theme(text = element_text(size=18),panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+p2 <- p2 + theme(text = element_text(size=10),panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
   geom_hline(yintercept = 50, linetype = "dashed", color = "gray65") + 
   scale_x_discrete(labels=x_labels) +
   scale_fill_manual(values = c("#333333", "#cccccc"),name= "",
                     labels=legend_labels, guide = guide_legend(reverse = FALSE))+
   xlab ("") + ylab ("") +
   theme_classic() +
-  
-  theme(axis.text.x = element_text(size=14)) +
-  theme(axis.text.y = element_text(size=14)) +
-  theme(plot.title = element_text(size=16, hjust=0.5)) +
-  theme(text = element_text(size = 20),
-        axis.title.y = element_text(size = 25), 
-        axis.title.x = element_text(size = 25, margin = margin(t = 20, r = 0, b = 0, l = 0)), 
-        axis.text.x = element_text(size = 14, angle = 45, vjust = 1.0, hjust = 1),
+  theme(axis.text.x = element_text(size=10)) +
+  theme(axis.text.y = element_text(size=10)) +
+  theme(plot.title = element_text(size=10, hjust=0.5)) +
+  theme(text = element_text(size = 10),
+        axis.title.y = element_text(size = 15), 
+        axis.title.x = element_text(size = 15, margin = margin(t = 20, r = 0, b = 0, l = 0)), 
+        axis.text.x = element_text(size = 10, angle = 45, vjust = 1.0, hjust = 1),
         legend.position="top") + 
-  xlab("Firm Type") +
+  xlab("Company Type") +
   ylab("") +
   geom_bar(position="dodge", stat="summary", width = 0.9, alpha = 0.38, size = 0.75) +
   stat_summary(fun.data = function(x) bootstrap_ci(x, alpha = 0.05, n_bootstrap = 1000),
@@ -206,4 +219,6 @@ p2 <- p2 + theme(text = element_text(size=18),panel.grid.major = element_blank()
                geom = "errorbar", width = 0.2, position = position_dodge(width = 0.9))
 p2
 
+p1 | p2
 
+ggsave("study2.png", device="png", width = 10, height = 4)

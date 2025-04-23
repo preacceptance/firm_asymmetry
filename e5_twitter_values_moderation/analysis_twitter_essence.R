@@ -1,5 +1,5 @@
 ## Corporate Essence Analysis - Twitter Acquisition
-
+## ,  
 
 # Clear working directory
 remove(list = ls())

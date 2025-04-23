@@ -1,5 +1,5 @@
 ## Corporate Essence Analysis - Values  
-
+## ,  
 
 # Clear working directory
 remove(list = ls())
