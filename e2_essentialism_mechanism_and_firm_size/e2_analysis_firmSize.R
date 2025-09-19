@@ -1,5 +1,5 @@
 ## Corporate Essence Analysis - Firm Size
-## ,  
+## De Freitas, Khon, Kim, & Johnson 
 
 # Clear working directory
 remove(list = ls())
@@ -7,6 +7,7 @@ remove(list = ls())
 # Set working directory to current file location 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
+mediation = TRUE
 
 # Import packages 
 if (!require(pacman)) {install.packages("pacman")}
@@ -113,6 +114,9 @@ n_after/n_before
 ## ANALYSES ##
 ##================================================================================================================
 
+#condition = 2 --> deteriorate
+#condition = 1 --> improve
+
 # Discriminant Validity
 model <- ' change   =~ change.1 + change.2
            essence  =~ essence'
@@ -142,15 +146,18 @@ summary(aov(change_mean~cond_name*size_name, data=d)) # no interaction
 summary(aov(essence~cond_name*size_name, data=d)) # no interaction
 
 ######### Mediation ###########
-source("process.R")
-d$condition <- ifelse(d$cond_name=='Improve', 1, -1) #contrast-coding for mediation
-process(data = d, y = "change_mean", x = "condition", m = "essence", 
+if(mediation) {
+  source("../common_functions/process.R")
+  d$condition <- ifelse(d$cond_name=='Improve', 1, -1) #contrast-coding for mediation
+  process(data = d, y = "change_mean", x = "condition", m = "essence", 
         model = 4, effsize = 1, total = 1, stand = 1, 
         boot = 10000 , modelbt = 1, seed = 654321)
+}
 
 ######### Graphs #############
 # Define variables
-x_labels <- c("Deterioration", "Improvement")
+x_labels <- c("Improvement", "Deterioration")
+legend_labels <- c("Improvement", "Deterioration")
 
 # Function for bootstrapping and computing confidence intervals
 bootstrap_ci <- function(x, alpha = 0.05, n_bootstrap = 1000) {
@@ -191,7 +198,6 @@ p1
 
 x_labels <- c("Clothing", "Cosmetics", "Apparel", "Store", 
               "Technology", "Laundry", "Tobacco", "Makeup") #set category/industry names
-legend_labels <- c("Deterioration", "Improvement")
 
 p2 <- ggplot(d,aes(x=factor(vignette),y=change_mean, fill=factor(condition)),color=factor(condition)) +  
   theme_bw() + coord_cartesian(ylim=c(1,100))+scale_y_continuous(breaks = scales::pretty_breaks(n = 5)) 
@@ -219,6 +225,17 @@ p2 <- p2 + theme(text = element_text(size=10),panel.grid.major = element_blank()
                geom = "errorbar", width = 0.2, position = position_dodge(width = 0.9))
 p2
 
-p1 | p2
+figure <- ggarrange(p1, p2, 
+                    nrow = 1, ncol = 2, 
+                    vjust = 1.0, hjust = 0.5, 
+                    labels = c("a", "b"),
+                    label.x = 0.02, label.y = 0.98, # optional: adjust placement
+                    font.label = list(size = 18))
 
-ggsave("study2.png", device="png", width = 10, height = 4)
+ggsave('e2.pdf', width = 12, height = 6)
+
+# Move files 
+dir.create("analysis_plots") 
+plot_files <- c("e2.pdf") #list.files(pattern = "pdf") 
+file.move(plot_files, "analysis_plots", overwrite = TRUE) 
+

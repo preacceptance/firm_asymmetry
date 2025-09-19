@@ -1,5 +1,5 @@
 ## Corporate Essence Analysis - Twitter Acquisition
-## ,  
+## De Freitas, Khon, Kim, & Johnson 
 
 # Clear working directory
 remove(list = ls())

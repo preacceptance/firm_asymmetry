@@ -1,5 +1,5 @@
 ## Corporate Essence Analysis - Twitter Followers 
-## , 
+## De Freitas, Khon, & Johnson 
 
 # Clear working directory
 remove(list = ls()) 

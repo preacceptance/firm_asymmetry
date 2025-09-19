@@ -1,5 +1,5 @@
 ## Corporate Essence Analysis - Causal Essence 
-## ,  
+## De Freitas, Khon, Kim, & Johnson 
 
 # Clear working directory
 remove(list = ls())
@@ -30,7 +30,7 @@ pacman::p_load('openxlsx', #open Excel spreadsheets
                'sjstats'
 )
 
-mediation <- T
+mediation <- FALSE
 
 ##================================================================================================================
                                 ##IMPORT & PRE-PROCESS DATA##
@@ -257,12 +257,11 @@ p2 <- p2 + theme(text = element_text(size=18),panel.grid.major = element_blank()
                geom = "errorbar", width = 0.2, position = position_dodge(width = 0.9))
 p2
 
-ggsave(paste0('e3', ".png"), last_plot(), dpi = 300, width = 7, height = 6)
-
+ggsave("fig6.pdf", width = 12, height = 6)
 
 # Move files 
 dir.create("analysis_plots") 
-plot_files <- c("e3.png") #list.files(pattern = ".pdf") 
+plot_files <- c("fig6.pdf") #list.files(pattern = "pdf") 
 file.move(plot_files, "analysis_plots", overwrite = TRUE) 
 
 ##=============================================================================================================

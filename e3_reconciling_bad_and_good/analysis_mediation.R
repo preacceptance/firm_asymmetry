@@ -1,5 +1,5 @@
 ## Corporate Essence Analysis - Causal Essence 
-## ,  
+## De Freitas, Khon, Kim, & Johnson 
 
 # Clear working directory
 remove(list = ls())
@@ -455,13 +455,19 @@ p4 <- p4 + theme(text = element_text(size=18),panel.grid.major = element_blank()
                geom = "errorbar", width = 0.2, position = position_dodge(width = 0.9))
 p4
 
-figure <- ggarrange(p3, p4, nrow = 1, ncol = 2, vjust = 1.0, hjust = 0.5)
-ggsave(paste0('e2_2', "png"), last_plot(), dpi = 300, width = 12, height = 6)
+figure <- ggarrange(p3, p4, 
+                    nrow = 1, ncol = 2, 
+                    vjust = 1.0, hjust = 0.5, 
+                    labels = c("a", "b"),
+                    label.x = 0.02, label.y = 0.98, # optional: adjust placement
+                    font.label = list(size = 18))
+
+ggsave("fig5.pdf", width = 12, height = 6)
 
 # Move files 
 dir.create("analysis_plots") 
-plot_files <- c("e2.png", "e2_2.png")
-file.move(plot_files, "analysis_plots", overwrite = TRUE) 
+plot_files <- c("fig5.pdf") #list.files(pattern = "pdf") 
+file.move(plot_files, "analysis_plots", overwrite = TRUE)  
 
 ##=============================================================================================================
 ## END ##

@@ -1,5 +1,5 @@
 ## Corporate Essence Analysis - Moral Asymmetry 
-## , 
+## De Freitas, Khon, & Johnson 
 
 # Clear working directory
 remove(list = ls())
@@ -33,7 +33,7 @@ pacman::p_load('openxlsx', #open Excel spreadsheets
                                 ##IMPORT & PRE-PROCESS DATA##
 ##================================================================================================================
 
-pwr.anova.test(k = 2,f = 6.35, sig.level = 0.001, power = 80)
+#pwr.anova.test(k = 2,f = 6.35, sig.level = 0.001, power = 80)
 
 # Read data
 d_raw <- read.csv("data_raw.csv")
@@ -249,13 +249,19 @@ p2 <- p2 + theme(text = element_text(size=18),panel.grid.major = element_blank()
                geom = "errorbar", width = 0.2, position = position_dodge(width = 0.9))
 p2
 
-figure <- ggarrange(p1, p2, nrow = 1, ncol = 2, vjust = 1.0, hjust = 0.5)
-ggsave(paste0('e1', ".png"), last_plot(), dpi = 300, width = 12, height = 6)
+figure <- ggarrange(p1, p2, 
+                    nrow = 1, ncol = 2, 
+                    vjust = 1.0, hjust = 0.5, 
+                    labels = c("a", "b"),
+                    label.x = 0.02, label.y = 0.98, # optional: adjust placement
+                    font.label = list(size = 18))
+
+ggsave('e1.pdf', width = 12, height = 6)
 
 
 # Move files 
 dir.create("analysis_plots") 
-plot_files <- c("e1.png") #list.files(pattern = ".pdf") 
+plot_files <- c("e1.pdf") #list.files(pattern = "pdf") 
 file.move(plot_files, "analysis_plots", overwrite = TRUE) 
 
 
