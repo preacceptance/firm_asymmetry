@@ -30,7 +30,8 @@ pacman::p_load('openxlsx', #open Excel spreadsheets
                'effectsize',
                'sjstats',
                "semTools",
-               "patchwork"
+               "patchwork",
+               "ggpubr"
 )
 
 mediation <- FALSE
@@ -156,25 +157,18 @@ if(mediation) {
 
 ######### Graphs #############
 # Define variables
-x_labels <- c("Improvement", "Deterioration")
-legend_labels <- c("Improvement", "Deterioration")
+x_labels <- c("Deterioration", "Improvement")
+legend_labels <- c("Deterioration", "Improvement")
 
-# Function for bootstrapping and computing confidence intervals
-bootstrap_ci <- function(x, alpha = 0.05, n_bootstrap = 1000) {
-  boot_samples <- replicate(n_bootstrap, sample(x, replace = TRUE))
-  boot_means <- apply(boot_samples, 2, mean)
-  ci_lower <- quantile(boot_means, alpha / 2)
-  ci_upper <- quantile(boot_means, 1 - alpha / 2)
-  data.frame(y = mean(x), ymin = ci_lower, ymax = ci_upper)
-}
+# Note: Using built-in ggplot2 functions for 95% CI calculation
 
-p1 <- ggplot(d,aes(x=factor(condition),y=change_mean)) +  
+p1 <- ggplot(d,aes(x=factor(condition, levels=c(2,1)),y=change_mean)) +  
   theme_bw() + coord_cartesian(ylim=c(1,100))+scale_y_continuous(breaks = scales::pretty_breaks(n = 5)) 
 
 p1 <- p1 + theme(text = element_text(size=10),panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
   geom_hline(yintercept = 50, linetype = "dashed", color = "gray65") + 
   scale_x_discrete(labels=x_labels) +
-  scale_fill_manual(values = c("#cccccc", "#333333"),name= "",
+  scale_fill_manual(values = c("#333333", "#cccccc"),name= "",
                     labels=legend_labels, guide = guide_legend(reverse = FALSE))+
   xlab ("") + ylab ("") +
   theme_classic() +
@@ -190,7 +184,7 @@ p1 <- p1 + theme(text = element_text(size=10),panel.grid.major = element_blank()
   xlab("Condition") +
   ylab("Identity Change") +
   geom_bar(position="dodge", stat="summary", width = 0.9, alpha = 0.38, size = 0.75) +
-  stat_summary(fun.data = function(x) bootstrap_ci(x, alpha = 0.05, n_bootstrap = 1000),
+  stat_summary(fun.data = mean_cl_normal, fun.args=list(conf.int=0.95),
                color = "black", size = 0.4, 
                geom = "errorbar", width = 0.2, position = position_dodge(width = 0.9))
 p1
@@ -199,7 +193,7 @@ p1
 x_labels <- c("Clothing", "Cosmetics", "Apparel", "Store", 
               "Technology", "Laundry", "Tobacco", "Makeup") #set category/industry names
 
-p2 <- ggplot(d,aes(x=factor(vignette),y=change_mean, fill=factor(condition)),color=factor(condition)) +  
+p2 <- ggplot(d,aes(x=factor(vignette),y=change_mean, fill=factor(condition, levels=c(2,1))),color=factor(condition, levels=c(2,1))) +  
   theme_bw() + coord_cartesian(ylim=c(1,100))+scale_y_continuous(breaks = scales::pretty_breaks(n = 5)) 
 
 p2 <- p2 + theme(text = element_text(size=10),panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
@@ -220,7 +214,7 @@ p2 <- p2 + theme(text = element_text(size=10),panel.grid.major = element_blank()
   xlab("Company Type") +
   ylab("") +
   geom_bar(position="dodge", stat="summary", width = 0.9, alpha = 0.38, size = 0.75) +
-  stat_summary(fun.data = function(x) bootstrap_ci(x, alpha = 0.05, n_bootstrap = 1000),
+  stat_summary(fun.data = mean_cl_normal, fun.args=list(conf.int=0.95),
                color = "black", size = 0.4, 
                geom = "errorbar", width = 0.2, position = position_dodge(width = 0.9))
 p2
